@@ -1,6 +1,6 @@
 export default function Navbar() {
     const links = [{name: "Learn", href: "/"}, {name: "Github", href: "/"}]
-    return <div className="p-4 bg-transparent text-white flex justify-between items-center absolute top-0 w-full z-50">
+    return <div style={{color:"#FF5A5F"}} className="p-4 bg-transparent flex justify-between items-center absolute top-0 w-full z-50">
         <h1 className="font-bold text-xl font-display">
             Tech @ EP
         </h1>

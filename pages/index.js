@@ -3,17 +3,20 @@ import PageHeader from "../components/home/PageHeader";
 import CourseHighlightCard from "../components/home/CourseHighlightCard";
 import Card from "../components/home/Card";
 import Navbar from "../components/Navbar";
+import Zoom from 'react-reveal/Zoom';
 
 export default function Home() {
+
     return (
         <div>
             <Navbar/>
-            <PageHeader heading="Helping Brown entrepreneurs deliver successful digital solutions."
-                        subheading="We develop tools and resources that empower the Brown University entrepreneurship community to do more with technology."
+            
+            <PageHeader heading="Tech @ EP"
                         buttonLabel="Our Work" buttonLink="/"/>
 
-            <div className="lg:-mt-12 mb-24 md:space-y-12">
+            <div style={{padding:"large"}} className="xlg:-mt-12 mb-50 md:space-y-12">
                 {/*Course Highlights*/}
+                <Zoom>
                 <Card heading="What we're working on">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                         <CourseHighlightCard title="Bruno Ventures"
@@ -24,8 +27,10 @@ export default function Home() {
                                              description=""/>
                     </div>
                 </Card>
+                </Zoom>
 
                 {/*Our Projects*/}
+                <Zoom>
                 <Card heading="Our team">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                         <CourseHighlightCard title="Build a custom web application"
@@ -46,7 +51,9 @@ export default function Home() {
                         <a className="font-semibold text-blue-600">Take our survey.</a>
                     </div>
                 </Card>
-            </div>
+                </Zoom>
+            </div> 
+            
 
 
         </div>

@@ -1,3 +1,6 @@
+import Typed from "react-typed";
+import {isMobile} from 'react-device-detect';
+
 /**
  * Represents the page header for the home page
  * @param heading - Large, primary text
@@ -6,31 +9,48 @@
  * @param buttonLink - the link for the CTA
  */
 export default function PageHeader({heading, subheading, buttonLabel, buttonLink}) {
-    return <div className="w-full bg-red-800 py-20 md:py-36 relative overflow-hidden z-40">
-        <svg className="absolute top-0 opacity-25 -mt-12" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg"
-             width="100%" id="blobSvg">
-            <path id="blob"
-                  d="M396,317.5Q328,385,231,418Q134,451,105,350.5Q76,250,115.5,167.5Q155,85,257.5,72.5Q360,60,412,155Q464,250,396,317.5Z"
-                  fill={"#d7291e"}/>
-        </svg>
-        <svg className="absolute bottom-0 opacity-50" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg"
-             width="150%" id="blobSvg">
-            <path id="blob"
-                  d="M441.5,325.5Q430,401,356.5,419.5Q283,438,209.5,442.5Q136,447,114,377.5Q92,308,61,239Q30,170,85.5,116Q141,62,216,40.5Q291,19,336.5,79Q382,139,417.5,194.5Q453,250,441.5,325.5Z"
-                  fill={"#4d0f0b"}/>
-        </svg>
+// <PageHeader heading="Helping Brown entrepreneurs deliver successful digital solutions."
+//  subheading="We develop tools and resources that empower the Brown University 
+// entrepreneurship community to do more with technology."
 
-        <div className="max-w-screen-xl mx-auto px-4 z-50 relative">
-            <h1 className="text-4xl sm:text-6xl font-display leading-none font-bold tracking-tight text-white mt-10 mb-8 sm:mt-14">
+    const typed = [
+        `Empowering Brown entrepreneurs.`,
+        `Developing tools for ventures.`,
+        `Providing resources across campus.`,
+        'Providing resources across the country.',
+        'Providing resources around the world.',
+        `Creating innovative solutions.`,
+        `Encouraging alumni interaction.`
+      ];
+
+    return <div style={{justifyContent:"center", display:"flex"}} className="min-h-screen min-w-screen">
+        <div>
+        <h1 style={{color:"#252222", marginTop:"30%", fontSize: isMobile ? "4rem" : "7rem"}}
+            className="text-center font-display font-bold">
                 {heading}
             </h1>
-            <p className="text-white max-w-4xl text-lg sm:text-2xl sm:leading-tight font-light mb-10 sm:mb-11">
-                {subheading}
+            <p style={{color: "#252222", marginBottom:"70px", fontSize: isMobile ? "1.3rem" : "1.7rem"}} className="font-semibold text-center font-light">
+                <Typed strings={typed} typeSpeed={50} backSpeed={50} backDelay={2200} loop smartBackspace/>
             </p>
             <a href={buttonLink}
-               className="w-full sm:w-auto flex-none bg-white hover:opacity-75 text-red-800 text-lg leading-6 font-semibold py-3 px-6 border border-transparent rounded-xl focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-white focus:outline-none transition-colors duration-200">
+                style={{width:"200px", justifyContent:"center", fontSize: isMobile ? "1.3rem" : "1.7rem", padding:"20px", display:"flex", 
+                        margin:"auto", backgroundColor:"#FF5A5F", color:"black"}}
+                className="hover:opacity-75 p-4 font-semibold rounded-xl">
                 {buttonLabel}
             </a>
+
         </div>
+        <ul class="circles">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+            </ul>
     </div>
 }
