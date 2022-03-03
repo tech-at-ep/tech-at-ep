@@ -3,35 +3,50 @@ import PageHeader from "../components/home/PageHeader";
 import CourseHighlightCard from "../components/home/CourseHighlightCard";
 import Card from "../components/home/Card";
 import Navbar from "../components/Navbar";
+import Fade from 'react-reveal/Fade';
 import Zoom from 'react-reveal/Zoom';
+import React, { useState, useRef } from 'react';
+
 
 export default function Home() {
+
+// I need a...
+// - favicon logo
+
+    const workRef = useRef();
+
+    function handleScroll() {
+        workRef.current.scrollIntoView({ behavior: 'smooth' })
+    }
 
     return (
         <div>
             <Navbar/>
-            
-            <PageHeader heading="Tech @ EP"
-                        buttonLabel="Our Work" buttonLink="/"/>
+        
+            <Fade duration={1500}>
+                <PageHeader heading="Tech @ EP"
+                            buttonLabel="Our Work" 
+                            buttonAction={handleScroll}/>
+            </Fade>
 
-            <div style={{padding:"large"}} className="xlg:-mt-12 mb-50 md:space-y-12">
-                {/*Course Highlights*/}
-                <Zoom>
-                <Card heading="What we're working on">
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                        <CourseHighlightCard title="Bruno Ventures"
-                                             description=""/>
-                        <CourseHighlightCard title="Venture at Brown"
-                                             description=""/>
-                        <CourseHighlightCard title="Startups on the Hill"
-                                             description=""/>
-                    </div>
-                </Card>
-                </Zoom>
-
+            <div style={{padding:"large"}} ref={workRef} className="xlg:-mt-12 mb-50 md:space-y-12">
                 {/*Our Projects*/}
                 <Zoom>
-                <Card heading="Our team">
+                    <Card heading="Our Projects">
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <CourseHighlightCard title="Bruno Ventures"
+                                                description=""/>
+                            <CourseHighlightCard title="Venture at Brown"
+                                                description=""/>
+                            <CourseHighlightCard title="Startups on the Hill"
+                                                description=""/>
+                        </div>
+                    </Card>
+                </Zoom>
+
+                {/*Our Team*/}
+                <Zoom>
+                <Card heading="Our Team">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                         <CourseHighlightCard title="Build a custom web application"
                                              description="Create a modern, secure, and scalable web app using React and Firebase."/>

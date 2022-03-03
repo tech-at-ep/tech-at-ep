@@ -8,7 +8,7 @@ import {isMobile} from 'react-device-detect';
  * @param buttonLabel - the text label of the CTA button
  * @param buttonLink - the link for the CTA
  */
-export default function PageHeader({heading, subheading, buttonLabel, buttonLink}) {
+export default function PageHeader({heading, buttonLabel, buttonAction}) {
 // <PageHeader heading="Helping Brown entrepreneurs deliver successful digital solutions."
 //  subheading="We develop tools and resources that empower the Brown University 
 // entrepreneurship community to do more with technology."
@@ -30,17 +30,18 @@ export default function PageHeader({heading, subheading, buttonLabel, buttonLink
                 {heading}
             </h1>
             <p style={{color: "#252222", marginBottom:"70px", fontSize: isMobile ? "1.3rem" : "1.7rem"}} className="font-semibold text-center font-light">
-                <Typed strings={typed} typeSpeed={50} backSpeed={50} backDelay={2200} loop smartBackspace/>
+                <Typed strings={typed} typeSpeed={50} backSpeed={60} backDelay={2200} loop smartBackspace/>
             </p>
-            <a href={buttonLink}
+            <button 
+                onClick={buttonAction}
                 style={{width:"200px", justifyContent:"center", fontSize: isMobile ? "1.3rem" : "1.7rem", padding:"20px", display:"flex", 
                         margin:"auto", backgroundColor:"#FF5A5F", color:"black"}}
                 className="hover:opacity-75 p-4 font-semibold rounded-xl">
                 {buttonLabel}
-            </a>
+            </button>
 
         </div>
-        <ul class="circles">
+        <ul className="circles">
                     <li></li>
                     <li></li>
                     <li></li>
