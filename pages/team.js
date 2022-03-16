@@ -11,25 +11,29 @@ export default function Team() {
             name: 'Arun',
             bio: 'Loves Mock Trial',
             linkedin: 'https://www.linkedin.com/in/akav/',
-            cursor: 'pointer'
+            cursor: 'pointer',
+            email: "arun_kavishwar@brown.edu"
          },
          {
             name: 'Raffa',
             bio: 'Loves Mock Trial',
             linkedin: 'https://www.linkedin.com/in/aka/',
-            cursor: 'pointer'
+            cursor: 'pointer',
+            email: "raffaele_moore@brown.edu"
          },
          {
             name: 'Michael',
             bio: 'Loves Mock Trial',
             linkedin: 'https://www.linkedin.com/in/kav/',
-            cursor: 'pointer'
+            cursor: 'pointer',
+            email: "michael_chandler@brown.edu"
          },
          {
             name: 'Fiona',
             bio: 'Loves Mock Trial',
             linkedin: 'https://www.linkedin.com/in/av/',
-            cursor: 'pointer'
+            cursor: 'pointer',
+            email: "fiona_dunn@brown.edu"
          }
     ]
 
@@ -50,7 +54,7 @@ export default function Team() {
               {
                 people.slice(i, i + 3)
                   .map(p => (
-                    <Teammate name={p.name} bio={p.bio} linkedin={p.linkedin} cursor={p.cursor} width={width} />
+                    <Teammate name={p.name} bio={p.bio} linkedin={p.linkedin} cursor={p.cursor} email={p.email} width={width} />
                   ))
               }
               </div>

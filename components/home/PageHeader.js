@@ -23,18 +23,19 @@ export default function PageHeader({heading, buttonLabel, buttonAction}) {
         `Encouraging alumni interaction.`
       ];
 
-    return <div style={{justifyContent:"center", display:"flex"}} className="min-h-screen min-w-screen">
+    return <div>
+    <div style={{zIndex:"3", justifyContent:"center", display:"flex"}} className="min-h-screen min-w-screen">
         <div>
-        <h1 style={{color:"#252222", marginTop:"30%", fontSize: isMobile ? "4rem" : "7rem"}}
+        <h1 style={{zIndex:"3", color:"#252222", marginTop:"30%", fontSize: isMobile ? "4rem" : "7rem"}}
             className="text-center font-display font-bold">
                 {heading}
             </h1>
-            <p style={{color: "#252222", marginBottom:"70px", fontSize: isMobile ? "1.3rem" : "1.7rem"}} className="font-semibold text-center font-light">
+            <p style={{zIndex:"3", color: "#252222", marginBottom:"70px", fontSize: isMobile ? "1.3rem" : "1.7rem"}} className="font-semibold text-center font-light">
                 <Typed strings={typed} typeSpeed={50} backSpeed={60} backDelay={2200} loop smartBackspace/>
             </p>
             <button 
                 onClick={buttonAction}
-                style={{width:"200px", justifyContent:"center", fontSize: isMobile ? "1.3rem" : "1.7rem", padding:"20px", display:"flex", 
+                style={{zIndex:"3", width:"200px", justifyContent:"center", fontSize: isMobile ? "1.3rem" : "1.7rem", padding:"20px", display:"flex", 
                         margin:"auto", backgroundColor:"#FF5A5F", color:"black"}}
                 className="hover:opacity-75 p-4 font-semibold rounded-xl">
                 {buttonLabel}
@@ -54,4 +55,7 @@ export default function PageHeader({heading, buttonLabel, buttonAction}) {
                     <li></li>
             </ul>
     </div>
+    <div style={{zIndex:"1", backgroundColor:"#FF5A5F", height:"200px", width:"100%"}}>
+        </div>
+        </div>
 }

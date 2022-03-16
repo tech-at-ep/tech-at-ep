@@ -35,7 +35,7 @@ body {
     transform: scale(1.04); 
 }
 
-
+/* splash page animation */
  /* https://codepen.io/mohaiman/pen/MQqMyo */
 .circles{
     position: absolute;
@@ -58,6 +58,7 @@ body {
     bottom: -150px;
     
 }
+
 
 .circles li:nth-child(1){
     left: 25%;
@@ -150,16 +151,16 @@ body {
 
 }
 
- .text_form_container {
+.text_form_container {
     grid-column: 1 / 3;
     width: 100%;
     /* height: 100vh; */
     margin: 0vw;
     padding: 2vh 4vw 1vh 4vw;
     /* position:relative; */
-  }
-  
-  .input {
+}
+
+.input {
     display: block;
     width: 100%;
     padding: 0.5rem 0.8rem 0.5rem 0.8rem;
@@ -169,4 +170,95 @@ body {
     background: #f6f5f8;
     border: 1px solid #f1f1f1;
     box-shadow: 1px 1px 1px #f1f1f1;
-  }
+}
+
+input:focus{ 
+    outline: none !important;
+    border-color: #FF5A5F;
+    box-shadow: 0 0 3px #FF5A5F;
+}
+select:focus { 
+    outline: none !important;
+    border-color: #FF5A5F;
+    box-shadow: 0 0 3px #FF5A5F;
+}
+textarea:focus { 
+    outline: none !important;
+    border-color: #FF5A5F;
+    box-shadow: 0 0 3px #FF5A5F;
+}
+.css-6j8wv5-Input {
+    outline: none !important;
+    border-color:none !important;
+    box-shadow: none !important;
+}
+
+/* Front page diagonal */
+.diagonal-box-1 {
+    /*background-image: linear-gradient(45deg, #252222, rgb(68, 0, 68),  purple, #FF5A5F, pink, white);*/
+    background-color: #FF5A5F;
+    transform: skewY(-6deg);
+    padding: 200px;
+    margin-top: -90px;
+    z-index: -1;
+} 
+.diagonal-box-2{
+    background-color:  #FF5A5F;
+    transform: skewY(-6deg);
+    padding: 200px;
+    margin-top: -80px;
+} 
+.diagonal-box-3{
+    transform: skewY(-6deg);
+    padding: 200px;
+    margin-top: -80px;
+} 
+
+.accent {
+    height:20px;
+    width:200px;
+    margin-top:-50px;
+    background-color:  #252222;
+    position: absolute;
+    top:0;
+    right:0;
+}
+
+.accent-2 {
+    height:30px;
+    width:104px;
+    margin-top:-50px;
+    background-color: #FF5A5F;
+    position: absolute;
+    top:10px;
+    right:3px;
+    opacity:0.8;
+}
+
+.accent-3 {
+    height:20px;
+    width:200px;
+    margin-top:-50px;
+    background-color:  #252222;
+    position: absolute;
+    bottom:20px;
+    left:0;
+}
+
+.accent-4 {
+    height:30px;
+    width:104px;
+    margin-top:-50px;
+    background-color: #FF5A5F;
+    position: absolute;
+    bottom:30px;
+    left:3px;
+    opacity:0.8;
+}
+
+.inner-diag { 	
+    max-width: 50em;
+    margin: 0 auto;
+    transform: skewY(6deg);
+    position: relative;
+}
