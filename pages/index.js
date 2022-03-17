@@ -42,7 +42,7 @@ export default function Home() {
 
     return (
         <div>
-            <Navbar/>
+            <Navbar blog={false}/>
             <Fade duration={1500}>
                 <PageHeader heading="Tech @ EP"
                             buttonLabel="Our Work" 
@@ -69,14 +69,14 @@ export default function Home() {
 
                 <div style={{padding:"180px", marginTop:"-120px"}} className="diagonal-box-4">
                 {/*Our ?*/}
-                    <div style={{marginTop:"100px" , marginLeft:"20%"}} className="inner-diag">
+                    <div style={{marginTop:"500px" , marginLeft:"20%"}} className="inner-diag">
                         <Zoom>
                     <div className="flex justify-between">
                         <div style={{marginLeft:"-190px"}}>
                             <div style={{color:"#f3f4f6", marginBottom:"10px", fontWeight:"bold", marginTop:"-120px", textAlign:"left", fontSize:"50px"}}>Meet the Team</div>
                             <div style={{color:"#f3f4f6", fontSize: "25px"}}>Our program is composed of the sharpest CS students Brown has to offer. Let's make dreams real.</div>
                             <br/>
-                            <div style={{color:"#f3f4f6", fontWeight:"bold", fontSize: "25px"}}>
+                            <div style={{paddingRight:"20px", height:"140px", color:"#f3f4f6", fontWeight:"bold", fontSize: "25px"}}>
                                 <Typed strings={typed} typeSpeed={40} backSpeed={50} backDelay={2200} loop smartBackspace/>
                             </div>
                             <div style={{padding:"20px", backgroundColor:"#f3f4f6", color:"#252222", 
@@ -85,8 +85,10 @@ export default function Home() {
 
                         </div>
 
+                        <div style={{width:"500px", height:"0px", backgroundColor:"red"}}></div>
+
                         <img className="team-image" src={teamImg.src} style={{
-                            marginTop:"-100px"}} width="400px" height="900px"></img>
+                            marginTop:"-100px"}} width="420px" height="380px"></img>
    
                         </div>
 

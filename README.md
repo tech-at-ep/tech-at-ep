@@ -29,6 +29,12 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
+## Adding a Blog Post
+1) Go to assets/blogImages and upload your blog thumbnail photo
+2) Go to pages/blogs and follow the template to create your blog in a file blogi.js where i is the next sequential number
+3) Go to pages/blogs/blogs.js and export your file
+4) Go to pages/media,js and add your blog to the list (line 19, under the comment)
+
 ## Deploy on Vercel
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
