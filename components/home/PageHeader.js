@@ -31,12 +31,13 @@ export default function PageHeader({heading, buttonLabel, buttonAction}) {
                 {heading}
             </h1>
             <p style={{zIndex:"3", color: "#252222", marginBottom:"70px", fontSize: isMobile ? "1.3rem" : "1.7rem"}} className="font-semibold text-center font-light">
-                <Typed strings={typed} typeSpeed={50} backSpeed={60} backDelay={2200} loop smartBackspace/>
+                {/* <Typed strings={typed} typeSpeed={50} backSpeed={60} backDelay={2200} loop smartBackspace/> */}
+                <div>Empowering Brown Entrepreneurs.</div>
             </p>
             <button 
                 onClick={buttonAction}
                 style={{zIndex:"3", width:"200px", justifyContent:"center", fontSize: isMobile ? "1.3rem" : "1.7rem", padding:"20px", display:"flex", 
-                        margin:"auto", backgroundColor:"#FF5A5F", color:"black"}}
+                        margin:"auto", backgroundColor:"#FF5A5F", color:"#f3f4f6"}}
                 className="hover:opacity-75 p-4 font-semibold rounded-xl">
                 {buttonLabel}
             </button>
@@ -55,7 +56,9 @@ export default function PageHeader({heading, buttonLabel, buttonAction}) {
                     <li></li>
             </ul>
     </div>
-    <div style={{zIndex:"1", backgroundColor:"#FF5A5F", height:"200px", width:"100%"}}>
+    <div style={{zIndex:"1", height:"200px", width:"100%"}}>
+        <div className="accent-5"></div>
+        <div className="accent-6"></div>
         </div>
         </div>
 }

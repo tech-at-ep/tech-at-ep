@@ -70,7 +70,7 @@ export default function Team() {
     return <div>
         <Navbar />
         <Zoom duration={500}>
-         <People people={teammates} />
+            <People people={teammates} />
         </Zoom>
     </div>
 }

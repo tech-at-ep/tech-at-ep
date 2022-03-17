@@ -196,7 +196,7 @@ textarea:focus {
 /* Front page diagonal */
 .diagonal-box-1 {
     /*background-image: linear-gradient(45deg, #252222, rgb(68, 0, 68),  purple, #FF5A5F, pink, white);*/
-    background-color: #FF5A5F;
+    /* background-color: #FF5A5F; */
     transform: skewY(-6deg);
     padding: 200px;
     margin-top: -90px;
@@ -213,6 +213,24 @@ textarea:focus {
     padding: 200px;
     margin-top: -80px;
 } 
+
+.diagonal-box-4{
+    background-color:  #FF5A5F;
+    transform: skewY(-6deg);
+    padding: 200px;
+    margin-top: -80px;
+} 
+
+.myGallery {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.team-image {
+    border: 12px double #f3f4f6;
+    transform: rotate(6deg);
+}
 
 .accent {
     height:20px;
@@ -252,6 +270,49 @@ textarea:focus {
     background-color: #FF5A5F;
     position: absolute;
     bottom:30px;
+    left:3px;
+    opacity:0.8;
+}
+
+.accent-5 {
+    height:50px;
+    width:100%;
+    background-color: #252222;
+    position: absolute;
+    margin-bottom: -50px;
+    bottom:0;
+    z-index:"1";
+}
+
+.accent-6 {
+    height:30px;
+    width:60%;
+    background-color: #FF5A5F;
+    position: absolute;
+    margin-bottom: -70px;
+    bottom:0;
+    opacity:0.8;
+    z-index:"1";
+    left:20%;
+    opacity:0.8;
+}
+
+.accent-7 {
+    height:20px;
+    width:200px;
+    background-color:  #252222;
+    position: absolute;
+    bottom:120px;
+    left:0;
+}
+
+.accent-8 {
+    height:30px;
+    width:104px;
+    margin-top:-50px;
+    background-color: #FF5A5F;
+    position: absolute;
+    bottom:130px;
     left:3px;
     opacity:0.8;
 }
