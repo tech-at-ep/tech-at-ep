@@ -1,5 +1,6 @@
 import Typed from "react-typed";
 import {isMobile} from 'react-device-detect';
+import Whitelogo from "../../assets/ctwhite.png"
 
 /**
  * Represents the page header for the home page
@@ -8,7 +9,7 @@ import {isMobile} from 'react-device-detect';
  * @param buttonLabel - the text label of the CTA button
  * @param buttonLink - the link for the CTA
  */
-export default function PageHeader({heading, buttonLabel, buttonAction}) {
+export default function PageHeader({heading, buttonLabel, backImg, buttonAction}) {
 // <PageHeader heading="Helping Brown entrepreneurs deliver successful digital solutions."
 //  subheading="We develop tools and resources that empower the Brown University 
 // entrepreneurship community to do more with technology."
@@ -36,10 +37,10 @@ export default function PageHeader({heading, buttonLabel, buttonAction}) {
             </p>
             <button 
                 onClick={buttonAction}
-                style={{zIndex:"3", width:"200px", justifyContent:"center", fontSize: isMobile ? "1.3rem" : "1.7rem", padding:"20px", display:"flex", 
-                        margin:"auto", backgroundColor:"#FF5A5F", color:"#f3f4f6"}}
+                style={{zIndex:"3", width:"250px", justifyContent:"center", fontSize: isMobile ? "1.3rem" : "1.7rem", padding:"20px", display:"flex", 
+                        margin:"auto", gap:"1rem", backgroundColor:"#FF5A5F", color:"#f3f4f6"}}
                 className="hover:opacity-75 p-4 font-semibold rounded-xl">
-                {buttonLabel}
+                    <img src={Whitelogo.src} style={{width:"40px", height:"40px"}}></img>
             </button>
 
         </div>
@@ -56,9 +57,8 @@ export default function PageHeader({heading, buttonLabel, buttonAction}) {
                     <li></li>
             </ul>
     </div>
-    <div style={{zIndex:"1", height:"200px", width:"100%"}}>
+    {/* <div style={{overflow:"hidden", backgroundRepeat:"", backgroundImage:`url('`+backImg+`')`, zIndex:"1", height:"200px", width:"100%"}}>
         <div className="accent-5"></div>
-        <div className="accent-6"></div>
-        </div>
-        </div>
+    </div> */}
+    </div>
 }

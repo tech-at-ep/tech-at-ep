@@ -196,7 +196,7 @@ textarea:focus {
 /* Front page diagonal */
 .diagonal-box-1 {
     /*background-image: linear-gradient(45deg, #252222, rgb(68, 0, 68),  purple, #FF5A5F, pink, white);*/
-    /* background-color: #FF5A5F; */
+    /* background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAIAAACRXR/mAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAABnSURBVHja7M5RDYAwDEXRDgmvEocnlrQS2SwUFST9uEfBGWs9c97nbGtDcquqiKhOImLs/UpuzVzWEi1atGjRokWLFi1atGjRokWLFi1atGjRokWLFi1af7Ukz8xWp8z8AAAA//8DAJ4LoEAAlL1nAAAAAElFTkSuQmCC"); */
     transform: skewY(-6deg);
     padding: 200px;
     margin-top: -90px;
@@ -205,7 +205,7 @@ textarea:focus {
 .diagonal-box-2{
     background-color:  #FF5A5F;
     transform: skewY(-6deg);
-    padding: 200px;
+    padding: 120px;
     margin-top: -80px;
 } 
 .diagonal-box-3{
@@ -275,21 +275,21 @@ textarea:focus {
 }
 
 .accent-5 {
-    height:50px;
+    height:10px;
+    margin-bottom: -10px;
     width:100%;
-    background-color: #252222;
+    background-color: #FF5A5F;
     position: absolute;
-    margin-bottom: -50px;
     bottom:0;
     z-index:"1";
 }
 
 .accent-6 {
-    height:30px;
+    height:7px;
     width:60%;
     background-color: #FF5A5F;
     position: absolute;
-    margin-bottom: -70px;
+    margin-bottom: -80px;
     bottom:0;
     opacity:0.8;
     z-index:"1";
@@ -323,3 +323,44 @@ textarea:focus {
     transform: skewY(6deg);
     position: relative;
 }
+
+.blog-gradient {
+	background: linear-gradient(-45deg, #FF5A5F, #571b1d, #690609, #ff8e92);
+	background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    height: 100%;
+    min-height: 100vh;
+}
+
+.spinny {
+    animation-name: spin;
+    animation-duration: 20000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear; 
+    /* transform: rotate(3deg); */
+     /* transform: rotate(0.3rad);/ */
+     /* transform: rotate(3grad); */ 
+     /* transform: rotate(.03turn);  */
+  }
+
+@keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+

@@ -1,41 +1,16 @@
 import { useState, useEffect } from 'react';
-import Teammate from "../components/Teammate.js";
+import TeamCard from "../components/TeamCard.js";
 import Navbar from "../components/Navbar";
 import Zoom from 'react-reveal/Zoom';
 
-export default function Team() {
-    const [width, setWidth] = useState("300px")
+import {teamList} from '../components/TeamList.js'
 
-    const teammates = [
-        {
-            name: 'Arun',
-            bio: 'Loves Mock Trial',
-            linkedin: 'https://www.linkedin.com/in/akav/',
-            cursor: 'pointer',
-            email: "arun_kavishwar@brown.edu"
-         },
-         {
-            name: 'Raffa',
-            bio: 'Loves Mock Trial',
-            linkedin: 'https://www.linkedin.com/in/aka/',
-            cursor: 'pointer',
-            email: "raffaele_moore@brown.edu"
-         },
-         {
-            name: 'Michael',
-            bio: 'Loves Mock Trial',
-            linkedin: 'https://www.linkedin.com/in/kav/',
-            cursor: 'pointer',
-            email: "michael_chandler@brown.edu"
-         },
-         {
-            name: 'Fiona',
-            bio: 'Loves Mock Trial',
-            linkedin: 'https://www.linkedin.com/in/av/',
-            cursor: 'pointer',
-            email: "fiona_dunn@brown.edu"
-         }
-    ]
+
+export default function Team() {
+    const [widthB, setWidth] = useState("300px")
+
+    // future: change cursor to icons-per-person?
+    const teammates = teamList
 
     useEffect(() => {
         if (typeof window !== "undefined") {
@@ -43,10 +18,16 @@ export default function Team() {
           }
     }, [])
 
+    console.log(teammates)
+
 
     // cleanly generate all the people in the relevant places
     const People = ({ people }) => {
         let rows = [];
+        if (people === undefined) {
+            return <div></div>
+        }
+        console.log(people)
 
         for (var i = 0; i < people.length; i += 3) {
             rows.push(
@@ -54,7 +35,8 @@ export default function Team() {
               {
                 people.slice(i, i + 3)
                   .map(p => (
-                    <Teammate name={p.name} bio={p.bio} linkedin={p.linkedin} cursor={p.cursor} email={p.email} width={width} />
+                    <TeamCard name={p.name} bio={p.bio} hobby={p.hobby} image={p.image} 
+                              linkedin={p.linkedin} cursor={p.cursor} email={p.email} widthB={widthB} />
                   ))
               }
               </div>

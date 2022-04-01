@@ -1,23 +1,24 @@
-import React, { useState, useRef } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { MdEmail } from 'react-icons/md';
 import { BsFillPersonFill } from 'react-icons/bs';
-import{ init, emailjs } from '@emailjs/browser';
 import Fade from 'react-reveal/Fade';
 import Shake from 'react-reveal/Shake';
-
-import { send } from 'emailjs-com';
-
 import Select from 'react-select'
 import MarginCard from "../components/home/MarginCard";
+import {teamList} from '../components/TeamList.js'
+import Logo from '../assets/ctlogo.png'
 
-import makeAnimated from 'react-select/animated';
-import { css, jsx } from '@emotion/react'
 
 export default function ContactUs() {
   const form = useRef();
-  const [isSubmitted, setSubmitted] = useState(true);
+  const [isSubmitted, setNotSubmitted] = useState(true);
   const [invalid, setInvalid] = useState(false)
-  const [shake, setShake] = useState(false)
+  const [badMessage, setBadM] = useState(false)
+  const [badName, setBadName] = useState(false)
+
+  const [buffer, setBuffer] = useState(true)
+
+  const [numInvalid, setNumInvalid] = useState(0)
 
   const [toSend, setToSend] = useState({
     from_name: '',
@@ -26,24 +27,47 @@ export default function ContactUs() {
     reply_to: ''
   });
 
+  const teammates = teamList;
+
   const options = [
     { value: '', label: <em>Nobody</em>},
-    { value: 'arun_kavishwar@brown.edu', label: 'Arun (Brown)' },
-    { value: 'arun_kavishwar@yahoo.com', label: 'Arun (Yahoo)' },
-    { value: 'fiona_dunn@brown.edu', label: 'Fiona' }
   ]
 
+  useEffect(() => {
+    // fill up the cc sections
+    for (let i=0; i < teammates.length; i++) {
+      options.push({value: teammates[i].email, label: teammates[i].name})
+    }
+  }, []);
+  
+
   const emailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  let x = 0
 
   const sendEmail = (e) => {
     e.preventDefault();
-    if(invalid || toSend["reply_to"] == "") {
+
+    if(toSend["reply_to"] == ''){
       setInvalid(true)
-      setShake(true)
-      return
     }
 
-    console.log("not invalid")
+    if(toSend["from_name"] == '') {
+        setBadName(true)
+      }
+    if(toSend["message"] == '') {
+        setBadM(true)
+      }
+
+    x += 1
+
+    if(invalid || badName || badMessage || buffer) {
+      setNumInvalid(x)
+      setBuffer(false)
+      return
+    } else {
+      setNotSubmitted(false)
+    }
+
 
     // ************
     // READ BELOW!!!
@@ -70,47 +94,69 @@ export default function ContactUs() {
   const handleChange = (e) => {
     if(e.target.name=="reply_to") {
       if (!emailFormat.test(e.target.value.toLowerCase())){
-        setShake(true)
         setInvalid(true)
-      } else{
-        setShake(false)
+      } else {
         setInvalid(false)
       }
     }
+
+    if(e.target.name=="from_name") {
+      if (e.target.value == ""){
+        setBadName(true)
+      } else {
+        setBadName(false)
+      }
+    }
+
+    if(e.target.name=="message") {
+      if (e.target.value == ""){
+        setBadM(true)
+      } else {
+        setBadM(false)
+      }
+    }
+
     setToSend({ ...toSend, [e.target.name]: e.target.value });
   };
-
-  // TODO: Should we require the name not be blank?
 
   return (
     isSubmitted ?
       <MarginCard>
         <form className="formStyle" ref={form} onSubmit={sendEmail}>
             <div style={{color: "#FF5A5F", marginTop:"-30px"}} htmlFor="name" className="mt--3 contactBox block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Name</div>
-            <div className="relative">
-                <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
-                    <BsFillPersonFill/>
+            <div>
+                <div className="relative">
+                    <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+                        <BsFillPersonFill/>
+                    </div>
+                    <input onChange={handleChange} name="from_name" type="text" id="name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full pl-10 p-2.5" placeholder="Bruno the Bear" />
                 </div>
-                <input onChange={handleChange} name="from_name" type="text" id="name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full pl-10 p-2.5" placeholder="Bruno the Bear" />
+                <Fade bottom collapse when={badName}>
+                      <div className="invalid-feedback pt-2 text-sm font-sm"
+                        style={{ color:'red', display: 'block' }}
+                      >
+                        <em>Empty Name</em>
+                      </div>
+                </Fade>
             </div>
 
             <div htmlFor="email-adress-icon" style={{color: "#FF5A5F"}}className="pt-5 block mb-2 text-sm font-medium">Your Email</div>
             <div>
-            <div className="relative">
-                <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
-                    <MdEmail/>
-                </div>
-                <input onChange={handleChange} name="reply_to" type="text" id="email-adress-icon" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500" placeholder="tech@ep.com" />
-                
-            </div>
-            <Fade bottom collapse when={invalid}>
-                  <div className="invalid-feedback pt-2"
-                    style={{ color:'red', display: 'block' }}
-                  >
-                    Invalid Email address
+              <div className="relative">
+                  <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+                      <MdEmail/>
                   </div>
-                </Fade>
-                </div>
+                  <input onChange={handleChange} name="reply_to" type="text" id="email-adress-icon" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500" placeholder="tech@ep.com" />
+                  
+              </div>
+              <Fade bottom collapse when={invalid}>
+                    <div className="invalid-feedback pt-2 text-sm font-sm"
+                      style={{ color:'red', display: 'block' }}
+                    >
+                      <em>Invalid Email address</em>
+                    </div>
+              </Fade>
+            </div>
 
             <div style={{color: "#FF5A5F"}} htmlFor="to" className="pt-5  block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Tag</div>
             <div className="relative">
@@ -131,21 +177,31 @@ export default function ContactUs() {
             </div>
 
             <div style={{color: "#FF5A5F"}} htmlFor="message" className="pt-5 block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Message</div>
+            <div>
             <textarea onChange={handleChange} name="message" id="message" rows="4" className="block border p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg" placeholder="Leave a note..."></textarea> 
-          {
-            shake ? 
-            <Shake>
-          <input style={{padding:"5px", backgroundColor:"#FF5A5F", color:"white", width:"200px", borderRadius:"5px"}} className="mt-7" type="submit" value="Send" /> 
+            <Fade bottom collapse when={badMessage}>
+                  <div className="invalid-feedback pt-2 text-sm font-sm"
+                    style={{ color:'red', display: 'block' }}
+                  >
+                    <em>Empty Message</em>
+                  </div>
+                </Fade>
+            </div>
+
+          <Shake spy={numInvalid}>
+            <input style={{padding:"5px", backgroundColor:"#FF5A5F", color:"white", width:"200px", borderRadius:"5px"}} className="mt-7" type="submit" value="Send" /> 
           </Shake>
-          :
-          <input style={{padding:"5px", backgroundColor:"#FF5A5F", color:"white", width:"200px", borderRadius:"5px"}} className="mt-7" type="submit" value="Send" /> 
-          }
         </form>
   
     </MarginCard>
     :
+    <div style={{textAlign:"center"}}>
       <MarginCard>
         <div>Thank you for submitting!</div>
+        <img src={Logo.src} style={{padding:"50px", margin:"auto"}} width="200px" height="200px"></img>
+        <input style={{padding:"5px", textAlign: "center", backgroundColor:"#FF5A5F", color:"white", width:"200px", borderRadius:"5px"}} className="mt-7" type="submit" value="Send Another" onClick={() => setNotSubmitted(true)}/> 
+
       </MarginCard>
+    </div>
   );
 };
