@@ -158,7 +158,7 @@ export default function ContactUs() {
               </Fade>
             </div>
 
-            <div style={{color: "#FF5A5F"}} htmlFor="to" className="pt-5  block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Tag</div>
+            <div style={{color: "#FF5A5F"}} htmlFor="to" className="pt-5  block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Tag a Specific Team Member</div>
             <div className="relative">
                   <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
                       <BsFillPersonFill/>
@@ -189,7 +189,7 @@ export default function ContactUs() {
             </div>
 
           <Shake spy={numInvalid}>
-            <input style={{padding:"5px", backgroundColor:"#FF5A5F", color:"white", width:"200px", borderRadius:"5px"}} className="mt-7" type="submit" value="Send" /> 
+            <input style={{padding:"5px", cursor:"pointer", backgroundColor:"#FF5A5F", color:"white", width:"200px", borderRadius:"5px"}} className="mt-7" type="submit" value="Send" /> 
           </Shake>
         </form>
   

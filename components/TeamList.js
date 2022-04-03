@@ -1,4 +1,4 @@
-import Arun from '../assets/headshots/arun_s.png'
+import Arun from '../assets/headshots/arunheadshot.png'
 import Aaron from '../assets/headshots/aaron.png'
 import Jacob from '../assets/headshots/jacob.png'
 import John from '../assets/headshots/john.png'
@@ -16,8 +16,8 @@ const teamList = [
     {
        name: "Aaron Wang",
        bio: "Honestly, I'm just happy to be here.",
-       image: Aaron,
-       hobby: AaronH,
+       image: Aaron.src,
+       hobby: AaronH.src,
        linkedin: 'https://www.linkedin.com/in/aaronjwang',
        cursor: 'pointer',
        email: "aaron_j_wang@brown.edu"
@@ -33,7 +33,7 @@ const teamList = [
     },
     {
        name: "Jacob Frausto",
-       bio: "I’m a huge fan of seafood!",
+       bio: "I’m a huge fan of seafood.",
        image: Jacob.src,
        hobby: JacobH.src,
        linkedin: 'https://www.linkedin.com/in/jfrausto',

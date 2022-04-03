@@ -40,7 +40,8 @@ export default function PageHeader({heading, buttonLabel, backImg, buttonAction}
                 style={{zIndex:"3", width:"250px", justifyContent:"center", fontSize: isMobile ? "1.3rem" : "1.7rem", padding:"20px", display:"flex", 
                         margin:"auto", gap:"1rem", backgroundColor:"#FF5A5F", color:"#f3f4f6"}}
                 className="hover:opacity-75 p-4 font-semibold rounded-xl">
-                    <img src={Whitelogo.src} style={{width:"40px", height:"40px"}}></img>
+                    Explore
+                    {/* <img src={Whitelogo.src} style={{width:"40px", height:"40px"}}></img> */}
             </button>
 
         </div>
@@ -57,8 +58,6 @@ export default function PageHeader({heading, buttonLabel, backImg, buttonAction}
                     <li></li>
             </ul>
     </div>
-    {/* <div style={{overflow:"hidden", backgroundRepeat:"", backgroundImage:`url('`+backImg+`')`, zIndex:"1", height:"200px", width:"100%"}}>
-        <div className="accent-5"></div>
-    </div> */}
+
     </div>
 }

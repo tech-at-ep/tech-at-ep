@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Jello from 'react-reveal/Jello';
 import RubberBand from 'react-reveal/RubberBand';
 
-export default function TeamCard({name, bio, linkedin, cursor, image, hobby, widthB}) {
+export default function TeamCard({name, bio, linkedin, cursor, image, hobby, email, widthB}) {
     const [toggle, setToggle] = useState(false);
     const router = useRouter();
 
@@ -13,21 +13,26 @@ export default function TeamCard({name, bio, linkedin, cursor, image, hobby, wid
         (toggle ?
             <Jello className="grow" duration={900}>
                 <div className="grow" onClick={() => setToggle(!toggle)} 
-                    style={{width: widthB, height: widthB, cursor:cursor, backgroundImage:hobby, filter:"greyscale(100%)"}}>
-                        <div style={{marginTop:"30%", textAlign:"center"}}><b>{name}</b></div>
-                        <div style={{padding:"15px", textAlign:"center"}}>{bio}</div>
-                        <div style={{padding:"10px", textAlign:"center"}}>{linkedin}</div>
-                        <div onClick={() => router.push('/contact')}>
+                    style={{width: widthB, height: widthB, cursor:cursor, 
+                           backgroundSize:"cover", 
+                           backgroundImage:`linear-gradient(rgba(0,0,0,0.67),rgba(0,0,0,0.67)), url('`+hobby+`')`,
+                           }}>
+                        <div style={{filter:"none",fontSize:"35px", color:"white", marginTop:"30%", textAlign:"center"}}><b>{name}</b></div>
+                        <div style={{filter:"brightness(200%)", fontSize:"20px", color:"white", padding:"15px", textAlign:"center"}}>{bio}</div>
+                        <div style={{fontSize:"20px", color:"white", padding:"10px", textAlign:"center"}}>{linkedin}</div>
+                        <div style={{fontSize:"20px", color:"white", padding:"10px", textAlign:"center"}}>{email}</div>
+
+                        {/* <div onClick={() => router.push('/contact')}>
                             <button style={{margin:"auto"}}>
                                 <MdEmail />
                             </button>
-                        </div>
+                        </div> */}
                 </div>
             </Jello>
             : 
             <div className="grow" onClick={() => setToggle(!toggle)} 
-                style={{color:"black", width: widthB, height: widthB, cursor:cursor, backgroundImage:image.src}}>
-                </div>
+                style={{color:"black", width: widthB, height: widthB, cursor:cursor, backgroundSize:"cover", backgroundImage:`url('`+image+`')`}}>
+            </div>
         )
 
     )

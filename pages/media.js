@@ -39,7 +39,6 @@ export default function Media() {
             
             // set up child blogs
             for (var i = 1; i < blogList.length; i += 3) {
-                console.log(blogList[i])
                 rows.push(
                     <div style={{display:"flex", flexDirection:"row"}}>
                 {
