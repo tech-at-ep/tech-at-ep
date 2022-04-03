@@ -74,7 +74,7 @@ export default function ContactUs() {
     // ************
     // Unique identifiers from EMAILJS...do not change unless you know what you're doing
     // DO NOT SEND FRIVOLOUS EMAILS, WE HAVE A LIMIT (uncomment the send for functionality)
-    /* 
+    
       send(
         'service_yow188c',
         'template_kcoknnq',
@@ -88,7 +88,7 @@ export default function ContactUs() {
         .catch((err) => {
           console.log('FAILED...', err);
         });
-        */
+        
   };
 
   const handleChange = (e) => {
