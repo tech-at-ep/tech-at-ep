@@ -35,6 +35,10 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 3) Go to pages/blogs/blogs.js and export your file
 4) Go to pages/media,js and add your blog to the list (line 19, under the comment)
 
+## Adding / Removing a Teammate
+1) Go to components/TeamList.js and make the relevant changes.
+2) If dynamic addition for cc hasn't been updated, go to components/ContactUs.js and make the changes in the "options" object.
+
 ## Deploy on Vercel
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.

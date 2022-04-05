@@ -1,5 +1,4 @@
 import { useRouter } from "next/router";
-import Swing from 'react-reveal/Swing';
 
 export default function VentureLogo({image, name, timer, interval, link}) {
     const router = useRouter()

@@ -25,7 +25,6 @@ import SH from '../assets/startupsonhill.png';
 import VB from '../assets/ventures@brown.png';
 
 import teamImg from '../assets/arun.png';
-import { Router } from 'next/router';
 
 export default function Home() {
 

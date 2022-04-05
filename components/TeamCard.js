@@ -1,8 +1,6 @@
 import { useRouter } from 'next/router';
-import { MdEmail } from 'react-icons/md';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Jello from 'react-reveal/Jello';
-import RubberBand from 'react-reveal/RubberBand';
 
 export default function TeamCard({name, bio, linkedin, cursor, image, hobby, email, widthB}) {
     const [toggle, setToggle] = useState(false);

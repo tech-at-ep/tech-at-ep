@@ -1,6 +1,4 @@
-import Typed from "react-typed";
 import {isMobile} from 'react-device-detect';
-import Whitelogo from "../../assets/ctwhite.png"
 
 /**
  * Represents the page header for the home page
