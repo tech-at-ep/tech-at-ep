@@ -15,7 +15,7 @@ import YT from '../assets/utube.png';
 import GH from '../assets/github.png';
 import BL from '../assets/blog.png';
 import grid2 from '../assets/grid.png';
-import Whitelogo from "../assets/ctwhite.png"
+import Whitelogo from "../assets/tep_white.png"
 
 import EP from '../assets/eplogo.png'
 import VentureLogo from '../components/home/VentureLogo';
@@ -205,7 +205,7 @@ export default function Home() {
                             Have a suggestion? Looking to talk to a team member? Click below to let us know!
                         </h1>
                         <div style={{marginBottom:"0px", cursor:"pointer"}} onClick={() => router.push('/contact')}>
-                                <img src={Whitelogo.src} style={{margin:"auto"}} className="spinny" width="250px" height="250px"></img>
+                                <img src={Whitelogo.src} style={{margin:"auto"}} className="spinny" width="150px" height="150px"></img>
                             </div>
                         </Zoom>
                     </div>

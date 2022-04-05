@@ -6,7 +6,7 @@ import Shake from 'react-reveal/Shake';
 import Select from 'react-select'
 import MarginCard from "../components/home/MarginCard";
 import {teamList} from '../components/TeamList.js'
-import Logo from '../assets/ctlogo.png'
+import Logo from '../assets/tep_logo.png'
 
 
 export default function ContactUs() {
@@ -31,14 +31,22 @@ export default function ContactUs() {
 
   const options = [
     { value: '', label: <em>Nobody</em>},
+    { value: teammates[0].email, label: teammates[0].name},
+    { value: teammates[1].email, label: teammates[1].name},
+    { value: teammates[2].email, label: teammates[2].name},
+    { value: teammates[3].email, label: teammates[3].name},
+    { value: teammates[4].email, label: teammates[4].name},
+    { value: teammates[5].email, label: teammates[5].name},
+    { value: teammates[6].email, label: teammates[6].name},
   ]
 
-  useEffect(() => {
-    // fill up the cc sections
-    for (let i=0; i < teammates.length; i++) {
-      options.push({value: teammates[i].email, label: teammates[i].name})
-    }
-  }, []);
+  // THIS ISN'T WORKING CONSISTENTLY FOR SOME REASON
+  // useEffect(() => {
+  //   // fill up the cc sections
+  //   for (let i=0; i < teammates.length; i++) {
+  //     options.push({value: teammates[i].email, label: teammates[i].name})
+  //   }
+  // }, []);
   
 
   const emailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;

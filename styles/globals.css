@@ -337,18 +337,14 @@ textarea:focus {
     animation-duration: 20000ms;
     animation-iteration-count: infinite;
     animation-timing-function: linear; 
-    /* transform: rotate(3deg); */
-     /* transform: rotate(0.3rad);/ */
-     /* transform: rotate(3grad); */ 
-     /* transform: rotate(.03turn);  */
   }
 
 @keyframes spin {
     from {
-        transform:rotate(0deg);
+        transform:rotateZ(0deg);
     }
     to {
-        transform:rotate(360deg);
+        transform:rotateZ(360deg);
     }
 }
 

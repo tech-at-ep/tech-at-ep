@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import Logo from "../assets/ctlogo.png"
+import Logo from "../assets/tep_logo.png"
 
 export default function Navbar({blog}) {
     const router = useRouter();
