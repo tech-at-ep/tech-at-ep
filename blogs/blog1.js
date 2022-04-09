@@ -1,5 +1,5 @@
 // UPDATE PATH
-import EP from '../../assets/blogImages/blog1.png'
+import EP from '../assets/blogImages/blog1.png'
 
 // UPDATE THE TEXT FILE, REMOVE TITLE FROM YOUR BLOG
 export const Blog1 = () =>{

@@ -4,7 +4,7 @@ import { useState } from "react";
 import { ImCross } from 'react-icons/im'
 import Fade from 'react-reveal/Fade';
 
-import * as blogs from './blogs/blogs.js'
+import * as blogs from '../blogs/blogs.js'
 
 export default function Media() {        
         // on blog click, open up massive card that holds the blog
